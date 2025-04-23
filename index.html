@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assam Engineering College CGPA Calculator</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <div class="logo-container">
+                    <img src="https://aec.ac.in/static/media/logo.675b2dd6.png" alt="AEC Logo" class="logo">
+                </div>
+                <div class="title-container">
+                    <h1>Assam Engineering College</h1>
+                    <div class="subtitle">CGPA Calculator</div>
+                </div>
+            </div>
+        </header>
+        
+        <div class="description">
+            <p>This calculator helps Assam Engineering College students calculate their Cumulative Grade Point Average (CGPA) based on Semester Grade Point Averages (SGPA) and credits for each semester. Simply select your branch, current semester, and enter your SGPAs to get your CGPA instantly.</p>
+        </div>
+        
+        <div class="formulas">
+            <div class="card">
+                <div class="card-header">SGPA Formula</div>
+                <div class="card-body">
+                    <div class="formula-title"><i class="fas fa-calculator"></i> Semester GPA</div>
+                    <div class="formula">SGPA = ∑(GPi × NCi) / ∑NCi</div>
+                    <div class="formula-meaning">
+                        <p>Where:</p>
+                        <p>GPi = Grade point earned in the course</p>
+                        <p>NCi = Number of credits for the course</p>
+                        <p>n = Number of courses in the semester</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">CGPA Formula</div>
+                <div class="card-body">
+                    <div class="formula-title"><i class="fas fa-graduation-cap"></i> Cumulative GPA</div>
+                    <div class="formula">CGPA = ∑(SGPAi × NSCi) / ∑NSCi</div>
+                    <div class="formula-meaning">
+                        <p>Where:</p>
+                        <p>SGPAi = SGPA of ith Semester</p>
+                        <p>NSCi = Number of credits for ith semester</p>
+                        <p>N = Number of semesters completed</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">Calculate Your CGPA</div>
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="branch"><i class="fas fa-building"></i> Select Branch:</label>
+                    <div class="select-wrapper">
+                        <select id="branch" onchange="updateSemesterInputs()">
+                            <option value="">Select your branch</option>
+                            <option value="CIVIL">Civil Engineering</option>
+                            <option value="CHEMICAL">Chemical Engineering</option>
+                            <option value="ETE">Electronics & Telecommunication Engineering</option>
+                            <option value="CSE">Computer Science Engineering</option>
+                            <option value="ELECTRICAL">Electrical Engineering</option>
+                            <option value="IP">Industrial & Production Engineering</option>
+                            <option value="INSTRUMENTATION">Instrumentation Engineering</option>
+                            <option value="MECHANICAL">Mechanical Engineering</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="current-semester"><i class="fas fa-clock"></i> Current Semester:</label>
+                    <div class="select-wrapper">
+                        <select id="current-semester" onchange="updateSemesterInputs()">
+                            <option value="">Select your current semester</option>
+                            <option value="1">1st Semester</option>
+                            <option value="2">2nd Semester</option>
+                            <option value="3">3rd Semester</option>
+                            <option value="4">4th Semester</option>
+                            <option value="5">5th Semester</option>
+                            <option value="6">6th Semester</option>
+                            <option value="7">7th Semester</option>
+                            <option value="8">8th Semester</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div id="semester-inputs" class="semester-inputs">
+                    <!-- Semester inputs will be dynamically generated here -->
+                </div>
+                
+<div class="buttons">
+    <button id="calculate-btn" class="btn" onclick="calculateCGPA()">
+        <i class="fas fa-calculator"></i> Calculate CGPA
+    </button>
+    
+    <button id="reset-btn" class="btn btn-outline reset-btn" style="margin-left: 15px; background: transparent; color: var(--primary); border: 2px solid var(--primary); box-shadow: none;">
+        <i class="fas fa-redo"></i> Reset Form
+    </button>
+</div>
+
+
+            </div>
+        </div>
+        
+        <div id="result" class="result">
+            <div class="result-header">
+                <h2><i class="fas fa-award"></i> Your CGPA Result</h2>
+            </div>
+            <div id="cgpa-value" class="cgpa-value">0.00</div>
+            <div class="tooltip">
+                <i class="fas fa-info-circle"></i>
+                <span class="tooltiptext">CGPA is calculated based on the semester-wise credits for your specific branch</span>
+            </div>
+            <div id="details" class="details">
+                <div class="details-title">
+                    <i class="fas fa-clipboard-list"></i> Calculation Details
+                </div>
+                <!-- Details will be dynamically generated here -->
+            </div>
+        </div>
+    </div>
+
+
+    <div class="feedback">
+<a href="">Click Here to give Feedbacks</a>
+    </div>
+
+
+    
+    <footer>
+        <div class="footer-content">
+            <div class="developer">Developed by <span>Tanmoy Lahon</span> | 6th Semester, Electrical Engineering, AEC</div>
+            <div class="copyright">© 2025 Assam Engineering College - All Rights Reserved</div>
+        </div>
+    </footer>
+    
+    <div class="credit-badge">
+        <img src="https://aec.ac.in/static/media/logo.675b2dd6.png" alt="AEC">
+        <span>AEC CGPA Calculator</span>
+    </div>
+<script src="script.js"></script>
+</body>
+</html>
